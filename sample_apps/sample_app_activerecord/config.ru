@@ -9,11 +9,11 @@ ActiveRecord::Base.establish_connection(YAML.load_file('config/postgresql.yml')[
 
 if ENV['RACK_ENV'] == 'development'
   puts 'Loading NewRelic in developer mode ...'
-  require 'new_relic/rack/developer_mode'
-  use NewRelic::Rack::DeveloperMode
+  # require 'new_relic/rack/developer_mode'
+  # use NewRelic::Rack::DeveloperMode
 end
 
-NewRelic::Agent.manual_start
+# NewRelic::Agent.manual_start
 
 SlackRubyBotServer::App.instance.prepare!
 SlackRubyBotServer::Service.start!
